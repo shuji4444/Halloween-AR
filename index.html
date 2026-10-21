@@ -60,32 +60,37 @@
 
   <!-- マーカーの上に出すもの（各マーカーにコピーされる） -->
   <template id="ar-content">
+    <!-- 壁に貼ったマーカー向け: 正面をこちらに向け、かぼちゃの中心をマーカーの中心に、背面を壁に合わせる -->
+    <a-entity rotation="-90 0 0" position="0 0.6 0.47">
 
-    <!-- ===== ジャック・オ・ランタン（pumpkin.glb） ===== -->
-    <a-entity position="0 0 0"
-              animation="property: rotation; from: 0 -15 0; to: 0 15 0; dir: alternate; loop: true; dur: 2500; easing: easeInOutSine">
-      <a-entity gltf-model="#pumpkin" scale="3.5 3.5 3.5"></a-entity>
-      <!-- 中のろうそくの光 -->
-      <a-entity position="0 0.4 0.8" light="type: point; color: #ffae42; intensity: 1.2; distance: 3" flicker></a-entity>
-    </a-entity>
+      <!-- ===== ジャック・オ・ランタン（pumpkin.glb） ===== -->
+      <a-entity position="0 0 0"
+                animation="property: rotation; from: 0 -15 0; to: 0 15 0; dir: alternate; loop: true; dur: 2500; easing: easeInOutSine">
+        <a-entity gltf-model="#pumpkin" scale="3.5 3.5 3.5"></a-entity>
+        <!-- 中のろうそくの光 -->
+        <a-entity position="0 0.4 0.8" light="type: point; color: #ffae42; intensity: 1.2; distance: 3" flicker></a-entity>
+      </a-entity>
 
-    <!-- ===== お化け1（かぼちゃの周りを回る） ===== -->
-    <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 9000; easing: linear">
-      <a-entity position="1.1 0.5 0" rotation="0 0 0"
-                animation="property: position; from: 1.1 0.3 0; to: 1.1 0.6 0; dir: alternate; loop: true; dur: 1400; easing: easeInOutSine">
-        <a-entity gltf-model="#ghost" scale="1.5 1.5 1.5"></a-entity>
+      <!-- ===== お化け1（かぼちゃの周りを回る。公転と逆に自転させて顔は常に正面） ===== -->
+      <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 9000; easing: linear">
+        <a-entity position="1.1 0.5 0" rotation="0 0 0"
+                  animation="property: position; from: 1.1 0.3 0; to: 1.1 0.6 0; dir: alternate; loop: true; dur: 1400; easing: easeInOutSine">
+          <a-entity gltf-model="#ghost" scale="1.5 1.5 1.5"
+                    animation="property: rotation; from: 0 0 0; to: 0 -360 0; loop: true; dur: 9000; easing: linear"></a-entity>
+        </a-entity>
+      </a-entity>
+
+      <!-- ===== お化け2（小さめ・逆回り） ===== -->
+      <a-entity animation="property: rotation; from: 0 180 0; to: 0 -180 0; loop: true; dur: 12000; easing: linear">
+        <a-entity position="-0.9 1.0 0" rotation="0 180 0"
+                  animation="property: position; from: -0.9 0.7 0; to: -0.9 0.95 0; dir: alternate; loop: true; dur: 1100; easing: easeInOutSine">
+          <a-entity gltf-model="#ghost" scale="1 1 1"
+                    animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 12000; easing: linear"></a-entity>
+        </a-entity>
       </a-entity>
     </a-entity>
 
-    <!-- ===== お化け2（小さめ・逆回り） ===== -->
-    <a-entity animation="property: rotation; from: 0 180 0; to: 0 -180 0; loop: true; dur: 12000; easing: linear">
-      <a-entity position="-0.9 1.0 0" rotation="0 180 0"
-                animation="property: position; from: -0.9 0.7 0; to: -0.9 0.95 0; dir: alternate; loop: true; dur: 1100; easing: easeInOutSine">
-        <a-entity gltf-model="#ghost" scale="1 1 1"></a-entity>
-      </a-entity>
-    </a-entity>
-
-    <!-- 足元の影 -->
+    <!-- 壁に落ちる影 -->
     <a-circle rotation="-90 0 0" radius="0.6" position="0 0.01 0"
               material="color: #000; opacity: 0.35; transparent: true"></a-circle>
   </template>
