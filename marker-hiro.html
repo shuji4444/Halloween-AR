@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Halloween AR マーカー（Hiro）</title>
+  <style>
+    @page { size: A4; margin: 15mm; }
+    html, body { margin: 0; height: 100%; background: #fff; color: #222; font-family: system-ui, sans-serif; }
+    body { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+    img { width: min(90vw, 80vh); height: auto; display: block; }
+    p { margin: 0; padding: 0 16px; font-size: 14px; color: #666; text-align: center; }
+    a { color: #c25e00; }
+    @media print {
+      img { width: 120mm; }
+      p { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <img src="hiro.png" alt="ARマーカー（Hiro）">
+  <p>この画面か印刷した紙に、<a href="./">ARページ</a>を開いたスマホを向けてね<br>
+    <a href="marker-pumpkin.html">かぼちゃのマーカーに切り替える</a> ・ <a href="javascript:print()">印刷する</a></p>
+</body>
+</html>
