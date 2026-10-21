@@ -26,6 +26,17 @@
         this.el.setAttribute('light', 'intensity', v);
       }
     });
+    // 白黒の境目を明るさに合わせて自動で決める（既定は固定値100で、暗い部屋や照り返しで認識しにくい）
+    AFRAME.registerComponent('auto-threshold', {
+      tick() {
+        if (this.done) return;
+        const arjs = this.el.sceneEl.systems.arjs;
+        const c = arjs && arjs._arSession && arjs._arSession.arContext.arController;
+        if (!c) return;
+        c.setThresholdMode(artoolkit.AR_LABELING_THRESH_MODE_AUTO_ADAPTIVE);
+        this.done = true;
+      }
+    });
     // マーカー検出時にヒントを消す
     AFRAME.registerComponent('marker-hint', {
       init() {
@@ -41,6 +52,7 @@
 
   <a-scene embedded vr-mode-ui="enabled: false"
            renderer="logarithmicDepthBuffer: true; antialias: true"
+           auto-threshold
            arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono; cameraParametersUrl: camera_para.dat;">
 
     <a-assets timeout="15000">
@@ -48,7 +60,7 @@
       <a-asset-item id="ghost" src="ghost.glb"></a-asset-item>
     </a-assets>
 
-    <a-marker type="pattern" url="patt.pumpkin" marker-hint smooth="true" smoothCount="5">
+    <a-marker type="pattern" url="patt.pumpkin" marker-hint smooth="true" smooth-count="5">
 
       <!-- ===== ジャック・オ・ランタン（pumpkin.glb） ===== -->
       <a-entity position="0 0 0"
