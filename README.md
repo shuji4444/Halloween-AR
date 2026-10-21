@@ -6,7 +6,8 @@
 - index.html … AR本体
 - print.html … 印刷用シート（QR＋マーカー。QRは自動でこのフォルダのURLになります）
 - pumpkin.glb / ghost.glb … 3Dモデル（自作なので自由に使えます）
-- hiro.png / patt.hiro / camera_para.dat … マーカー画像と認識用データ
+- pumpkin-marker.png / patt.pumpkin … マーカー画像（かぼちゃのシルエット）と認識用データ
+- camera_para.dat … カメラのパラメータ
 
 ## 公開手順（GitHub Pages）
 1. GitHubのリポジトリで Settings → Pages を開く
