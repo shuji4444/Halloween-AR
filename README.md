@@ -5,6 +5,7 @@
 ## 中身
 - index.html … AR本体（かぼちゃ・Hiroのどちらのマーカーでも表示）
 - marker-pumpkin.html / marker-hiro.html … マーカーを画面に大きく表示するページ（そのまま印刷も可）
+- qr.png … ARページ（https://shuji4444.github.io/Halloween-AR/）を開くQRコード画像
 - print.html … 印刷用シート（QR＋マーカー。QRは自動でこのフォルダのURLになります）
 - pumpkin.glb / ghost.glb … 3Dモデル（自作なので自由に使えます）
 - pumpkin-marker.png / patt.pumpkin … マーカー画像（かぼちゃのシルエット）と認識用データ
